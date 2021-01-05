@@ -1,9 +1,9 @@
 package com.annygab.minimemory.models
 
 enum class BoardSize(val numCards: Int) {
-    EASY(numCards = 8),
-    MEDIUM(numCards = 18),
-    HARD(numCards = 24);
+    EASY(8),
+    MEDIUM(18),
+    HARD(24);
 
     fun getWidth(): Int{
         return when (this){
