@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904058377",
+    "project_id": "minimemory-8e939",
+    "storage_bucket": "minimemory-8e939.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904058377:android:51b682107e1afaa2ebcad8",
+        "android_client_info": {
+          "package_name": "com.annygab.minimemory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904058377-lkpuobb05l19fl11bg8egs4iq57k095p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0QFMar3ykNwPyAUXmTsO8XUlvBb0aVII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904058377-lkpuobb05l19fl11bg8egs4iq57k095p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
