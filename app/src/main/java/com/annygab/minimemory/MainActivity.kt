@@ -51,12 +51,6 @@ class MainActivity : AppCompatActivity() {
         tvNumMoves = findViewById(R.id.tvNumMoves)
         tvNumPairs = findViewById(R.id.tvNumPairs)
 
-        //Hack for developer efficiency. Enter this code in the onCreate Method to get directly there:
-        //This is for testing shouldn't get to production
-        val intent = Intent(this , CreateActivity::class.java)
-        intent.putExtra(EXTRA_BOARD_SIZE, BoardSize.MEDIUM)
-        startActivity(intent)
-
         setupBoard()
     }
 
