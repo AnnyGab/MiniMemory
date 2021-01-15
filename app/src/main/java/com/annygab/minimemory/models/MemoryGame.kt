@@ -5,7 +5,10 @@ import com.annygab.minimemory.utils.DEFAULT_ICONS
 //Constructing a list of cards, based on the board size, picking some random images
 //and based on that, creating a memory card data class
 
-class MemoryGame(private val boardSize: BoardSize){
+class MemoryGame(
+    private val boardSize: BoardSize,
+    private val customImages: List<String>?
+    ){
 
     val cards: List<MemoryCard>
     var numPairsFound = 0
@@ -14,9 +17,14 @@ class MemoryGame(private val boardSize: BoardSize){
     private var indexOfSingleSelectedCard: Int? = null
 
     init {
-        val chosenImages: List<Int> = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
-        val randomizedImages: List<Int> = (chosenImages + chosenImages).shuffled()
-        cards = randomizedImages.map { MemoryCard(it)  }
+        if (customImages == null){
+            val chosenImages: List<Int> = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
+            val randomizedImages: List<Int> = (chosenImages + chosenImages).shuffled()
+            cards = randomizedImages.map { MemoryCard(it)  }
+        }else{
+            val randomizedImages = (customImages + customImages).shuffled()
+            cards = randomizedImages.map { MemoryCard(it.hashCode(), it) }
+        }
     }
 
     //Game Logic
