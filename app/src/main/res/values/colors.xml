@@ -6,4 +6,7 @@
     <color name="color_gray">#E0E0E0</color>
     <color name="color_progress_full">#35BA01</color>
     <color name="color_progress_none">#DC1E0B</color>
+    <color name="green_dark">#4693FA</color>
+    <color name="green_darkest">#3EACDE</color>
+    <color name="green_blue">#52EFF6</color>
 </resources>
