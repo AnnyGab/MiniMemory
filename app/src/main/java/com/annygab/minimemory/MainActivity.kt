@@ -27,6 +27,8 @@ import com.annygab.minimemory.utils.EXTRA_BOARD_SIZE
 import com.annygab.minimemory.utils.EXTRA_GAME_NAME
 import com.github.jinatonic.confetti.CommonConfetti
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rvBoard: RecyclerView
     private lateinit var tvNumMoves: TextView
     private lateinit var tvNumPairs: TextView
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     private val db = Firebase.firestore //Reference to Firestore
     private var gameName: String? = null
@@ -61,13 +64,18 @@ class MainActivity : AppCompatActivity() {
         tvNumMoves = findViewById(R.id.tvNumMoves)
         tvNumPairs = findViewById(R.id.tvNumPairs)
 
+        // Obtain the FirebaseAnalytics instance.
+        firebaseAnalytics = Firebase.analytics
+
         setupBoard()
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -252,7 +260,7 @@ class MainActivity : AppCompatActivity() {
             tvNumPairs.text = "Pairs: ${memoryGame.numPairsFound} / ${boardSize.getNumPairs()}"
             if (memoryGame.haveWonGame()){
                 Snackbar.make(clRoot, "You won! Congratulations", Snackbar.LENGTH_LONG).show()
-                CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.YELLOW, Color.GREEN, Color.MAGENTA)).oneShot()
+                CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.BLUE, Color.GRAY, Color.BLACK)).oneShot()
             }
         }
 
